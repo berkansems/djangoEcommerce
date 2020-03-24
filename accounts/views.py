@@ -1,8 +1,14 @@
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.models import Group
+from django.contrib import messages
 from django.forms import inlineformset_factory
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.core.mail import EmailMessage
+
 
 from accounts.filters import OrderFilter
-from accounts.forms import OrderForm, CustomerForm
+from accounts.forms import OrderForm, CustomerForm, CreateUserForm
 from accounts.models import Customer, Order, Product
 
 
@@ -13,6 +19,7 @@ def home(request):
     totalCustomers = customers.count()
     pending = orders.filter(status="Pending").count()
     delivered = orders.filter(status="Delivered").count()
+
     context = {'customers': customers,
                'orders': orders,
                'totalOrders': totalOrders,
@@ -44,8 +51,6 @@ def customer(request, pk):
     return render(request, 'accounts/customer.html', context)
 
 
-
-
 def updateCustomer(request, pk):
     customer=Customer.objects.get(id=pk)
     form=CustomerForm(instance=customer)
@@ -56,7 +61,6 @@ def updateCustomer(request, pk):
             return redirect('customer',pk)
     context={'form':form}
     return render(request,'accounts/update_customer.html',context)
-
 
 def deleteCustomer(request,pk):
     customer=Customer.objects.get(id=pk)
@@ -77,8 +81,6 @@ def createCustomer(request):
             return redirect('home')
     context={'form':form}
     return render(request,'accounts/create_customer.html',context)
-
-
 
 
 def createOrder(request, pk):
@@ -113,7 +115,35 @@ def deleteOrder(request,pk):
     return render(request,'accounts/delete_order.html',context)
 
 
+def signUp(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            group = Group.objects.get(name='customer')
+            user.groups.add(group)
+            Customer.objects.create(
+                user=user,
+                name=user.username
+            )
+            username = form.cleaned_data.get('username')
+            messages.success(request, 'Accounts was created for ' + username)
+    context = {'form': form}
+    return render(request, 'accounts/signup.html', context)
 
+def signIn(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect("home")
+        else:
+            messages.info(request, 'Username or Password is incorrect')
+    context = {}
+    return render(request, 'accounts/signin.html', context)
 
 
 
