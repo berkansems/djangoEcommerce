@@ -1,4 +1,4 @@
-#!/home/berkan/Desktop/github/djangoEcommerce/venv/bin/python
+#!/home/berkan/Desktop/son/ecommerce/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
