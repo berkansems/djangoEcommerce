@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from accounts.decorators import unauthenticated_user, allowed_users, admin_only
+from accounts.decorators import unauthenticated_user, allowed_users, user_analyser
 from accounts.filters import OrderFilter
 from accounts.forms import OrderForm, CustomerForm, CreateUserForm
 from accounts.models import Order, Customer, Product
@@ -14,7 +14,7 @@ from django.forms import inlineformset_factory
 
 @login_required(login_url='signin')
 # @allowed_users(allowed_roles=['customer', 'admin'])
-@admin_only
+@user_analyser
 def home(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
@@ -124,10 +124,10 @@ def signUp(request):
             #user.groups.add(group)
             #Customer.objects.create(
             #    user=user,
-            #    name=user.username
+            #    name=user.username,
+            #    email=user.email
             #)
-            username = form.cleaned_data.get('username')
-            messages.success(request, 'Accounts was created for ' + username)
+
             return redirect('signin')
     context = {'form': form}
     return render(request, 'accounts/signup.html', context)
