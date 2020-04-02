@@ -3,9 +3,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
-from accounts.decorators import unauthenticated_user, allowed_users, admin_only
+from accounts.decorators import unauthenticated_user, allowed_users, user_analyser
 from accounts.filters import OrderFilter
 from accounts.forms import OrderForm, CustomerForm, CreateUserForm
 from accounts.models import Order, Customer, Product
@@ -14,7 +16,7 @@ from django.forms import inlineformset_factory
 
 @login_required(login_url='signin')
 # @allowed_users(allowed_roles=['customer', 'admin'])
-@admin_only
+@user_analyser
 def home(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
@@ -178,3 +180,8 @@ def accountSettings(request):
 
     context = {'form': form}
     return render(request, 'accounts/account_settings.html', context)
+
+
+def email(request):
+
+    return render(request,'accounts/reset_password_sent.html')

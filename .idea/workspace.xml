@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56a47a1b-6cc9-4033-8bf6-24ca6fd82d8a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/djangoEcommerce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoEcommerce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/signals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/account_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/account_settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +33,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZQtLX5dnQYqY0yybNs0jN72o2A" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -35,6 +47,34 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="decorators" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="djangoEcommerce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/accounts" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/accounts/decorators.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.decorators" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -58,15 +98,31 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="586" y="124" width="805" height="856" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585658093166" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585657885347">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1585833821706">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1584949737965" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585657885347" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585833821706" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1584825823788" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1585657987503">
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1585663142459">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585657987503" />
+    <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
+    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1585663142459">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
+    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1585663142459">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
+    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1585663142459">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1585849872795">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585849872795" />
   </component>
 </project>
