@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
 
         <ul class="navbar-nav">
-            {% if request.user.is_staff %}
+            {% if request.user.is_admin %}
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Dashboard</a>
             </li>
@@ -26,6 +26,9 @@
             {% else %}
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'user-page' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'account' %}">Account</a>
             </li>
             {%endif%}
         </ul>

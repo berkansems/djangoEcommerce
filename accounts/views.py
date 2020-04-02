@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 from accounts.decorators import unauthenticated_user, allowed_users, user_analyser
@@ -124,10 +126,10 @@ def signUp(request):
             #user.groups.add(group)
             #Customer.objects.create(
             #    user=user,
-            #    name=user.username,
-            #    email=user.email
+            #    name=user.username
             #)
-
+            username = form.cleaned_data.get('username')
+            messages.success(request, 'Accounts was created for ' + username)
             return redirect('signin')
     context = {'form': form}
     return render(request, 'accounts/signup.html', context)
@@ -178,3 +180,8 @@ def accountSettings(request):
 
     context = {'form': form}
     return render(request, 'accounts/account_settings.html', context)
+
+
+def email(request):
+
+    return render(request,'accounts/reset_password_sent.html')
