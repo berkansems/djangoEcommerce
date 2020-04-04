@@ -52,6 +52,8 @@ class Order(models.Model):
     dateCreated = models.DateTimeField(auto_now_add=True, null=True)
     status = models.CharField(max_length=200, null=True, choices=Status)
     note = models.CharField(max_length=1000, null=True)
+    adet = models.IntegerField(null=True)
+    totalCost= models.IntegerField(null=True)
 
     def __str__(self):
         return self.customer.name + " : " + self.product.name
