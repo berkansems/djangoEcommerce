@@ -24,12 +24,19 @@ def home(request):
     totalOrders = orders.count()
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
+
+    totalOrdersAmount = 0
+    for order in orders:
+        totalOrdersAmount += order.adet
+
     context = {'orders': orders,
                'customers': customers,
                'totalOrders': totalOrders,
                'totalCustomers': totalCustomers,
                'delivered': delivered,
-               'pending': pending
+               'pending': pending,
+               'totalOrdersAmount':totalOrdersAmount
+
                }
     return render(request, 'accounts/dashboard.html', context)
 
@@ -63,7 +70,7 @@ def customer(request, pk):
 @login_required(login_url='signin')
 @allowed_users(allowed_roles=['admin'])
 def createOrder(request, pk):
-    orderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=10)
+    orderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'status'), extra=4)
     customer = Customer.objects.get(id=pk)
     formSet = orderFormSet(queryset=Order.objects.none(), instance=customer)
     if request.method == 'POST':
@@ -73,6 +80,69 @@ def createOrder(request, pk):
             return redirect('customer', pk)
     context = {'formSet': formSet}
     return render(request, 'accounts/order_form.html', context)
+
+
+
+@login_required(login_url='signin')
+@allowed_users(allowed_roles=['customer'])
+def newOrderCustomer(request,pk):
+    orderFormSet = inlineformset_factory(Customer, Order, fields=('product', 'adet'), extra=4)
+    customer = Customer.objects.get(id=pk)
+    formSet = orderFormSet(queryset=Order.objects.all(), instance=customer)
+    if request.method == "POST":
+        formSet = orderFormSet(request.POST, instance=customer)
+        if formSet.is_valid():
+            formSet.save()
+            customer = Customer.objects.get(id=pk)
+            orders = customer.order_set.all()
+
+            for order in orders:
+
+                order.totalCost=order.adet * order.product.price
+                order.save()
+        return redirect('payment',pk)
+
+
+    context={'formSet':formSet}
+    return render(request,'accounts/new_customer_order.html',context)
+
+
+
+@login_required(login_url='signin')
+@allowed_users(allowed_roles=['customer'])
+def payment(request,pk):
+    customer=Customer.objects.get(id=pk)
+    orders=customer.order_set.all()
+
+    totalOrderingCost=0
+    for order in orders:
+        totalOrderingCost+=order.totalCost
+
+    totalOrdersAmount=0
+    for order in orders:
+        totalOrdersAmount += order.adet
+
+    context={
+        'orders':orders,
+        'totalOrderingCost':totalOrderingCost,
+        'totalOrdersAmount':totalOrdersAmount
+    }
+    return render(request,'accounts/payment.html',context)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @login_required(login_url='signin')
@@ -162,10 +232,16 @@ def userPage(request):
     totalOrders = orders.count()
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
+    totalOrdersAmount = 0
+    for order in orders:
+        totalOrdersAmount += order.adet
+
     context = {'orders': orders,
                'totalOrders': totalOrders,
                'delivered': delivered,
-               'pending': pending}
+               'pending': pending,
+               'totalOrdersAmount':totalOrdersAmount
+               }
     return render(request, 'accounts/user.html', context)
 
 
