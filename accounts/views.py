@@ -66,6 +66,17 @@ def customer(request, pk):
 
     return render(request, 'accounts/customer.html', context)
 
+@login_required(login_url='signin')
+@allowed_users(allowed_roles=['admin'])
+def createCustomer(request):
+    formSet=CreateUserForm(request.POST)
+    if request.method=="POST":
+        customer=CreateUserForm(request.POST)
+        if customer.is_valid():
+            customer.save()
+            return redirect('home')
+    context={'formSet':formSet}
+    return render(request, 'accounts/create_customer.html',context)
 
 @login_required(login_url='signin')
 @allowed_users(allowed_roles=['admin'])
@@ -131,20 +142,6 @@ def payment(request,pk):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @login_required(login_url='signin')
 @allowed_users(allowed_roles=['admin'])
 def updateOrder(request, pk):
@@ -168,6 +165,16 @@ def deleteOrder(request, pk):
         return redirect('customer', order.customer.pk)
     context = {'order': order}
     return render(request, 'accounts/delete_order.html', context)
+
+@login_required(login_url='signin')
+@allowed_users(allowed_roles=['admin'])
+def deleteCustomer(request, pk):
+    customer = Customer.objects.get(id=pk)
+    if request.method == 'POST':
+        customer.delete()
+        return redirect('home')
+    context = {'customer': customer}
+    return render(request, 'accounts/delete_customer.html', context)
 
 
 @login_required(login_url='signin')
