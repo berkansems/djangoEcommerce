@@ -50,7 +50,7 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, null=True, on_delete=models.SET_NULL)
     product = models.ForeignKey(Product, null=True, on_delete=models.SET_NULL)
     dateCreated = models.DateTimeField(auto_now_add=True, null=True)
-    status = models.CharField(max_length=200, null=True, choices=Status)
+    status = models.CharField(max_length=200, null=True, choices=Status, default='Pending')
     note = models.CharField(max_length=1000, null=True)
     adet = models.IntegerField(null=True)
     totalCost= models.IntegerField(null=True)
