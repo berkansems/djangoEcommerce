@@ -15,7 +15,7 @@ from django.forms import inlineformset_factory
 
 
 @login_required(login_url='signin')
-# @allowed_users(allowed_roles=['customer', 'admin'])
+#@allowed_users(allowed_roles=['admin'])
 @user_analyser
 def home(request):
     orders = Order.objects.all()
@@ -36,7 +36,6 @@ def home(request):
                'delivered': delivered,
                'pending': pending,
                'totalOrdersAmount':totalOrdersAmount
-
                }
     return render(request, 'accounts/dashboard.html', context)
 
@@ -66,17 +65,7 @@ def customer(request, pk):
 
     return render(request, 'accounts/customer.html', context)
 
-@login_required(login_url='signin')
-@allowed_users(allowed_roles=['admin'])
-def createCustomer(request):
-    formSet=CreateUserForm(request.POST)
-    if request.method=="POST":
-        customer=CreateUserForm(request.POST)
-        if customer.is_valid():
-            customer.save()
-            return redirect('home')
-    context={'formSet':formSet}
-    return render(request, 'accounts/create_customer.html',context)
+
 
 @login_required(login_url='signin')
 @allowed_users(allowed_roles=['admin'])
@@ -108,7 +97,6 @@ def newOrderCustomer(request,pk):
             orders = customer.order_set.all()
 
             for order in orders:
-
                 order.totalCost=order.adet * order.product.price
                 order.save()
         return redirect('payment',pk)
@@ -191,6 +179,26 @@ def updateCustomer(request, pk):
     return render(request, 'accounts/update_customer.html', context)
 
 
+@login_required(login_url='signin')
+@allowed_users(allowed_roles=['admin'])
+def createCustomer(request):
+    form = CreateUserForm()
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            #group = Group.objects.get(name='customer')
+            #user.groups.add(group)
+            #Customer.objects.create(
+            #   user=user,
+            #   name=user.username
+            #)
+            username = form.cleaned_data.get('username')
+            messages.success(request, 'Accounts was created for ' + username)
+            return redirect('signout')
+    context = {'form': form}
+    return render(request, 'accounts/create_customer.html',context)
+
 @unauthenticated_user
 def signUp(request):
     form = CreateUserForm()
@@ -235,10 +243,12 @@ def signOut(request):
 @allowed_users(allowed_roles=['customer'])
 @login_required(login_url='signin')
 def userPage(request):
+
     orders = request.user.customer.order_set.all()
     totalOrders = orders.count()
     delivered = orders.filter(status='Delivered').count()
     pending = orders.filter(status='Pending').count()
+
     totalOrdersAmount = 0
     for order in orders:
         totalOrdersAmount += order.adet

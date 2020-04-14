@@ -5,13 +5,13 @@
 <div class="row">
     <div class="col-md-4">
         <div class="card card-body">
-            <p>Are you sure want to delete " {{customer}} "?</p>
+            <p>Are you sure want to create a customer?</p>
             <form method="POST" action="{% url 'create_customer'%}">
                 {% csrf_token %}
-                {{formSet.username}}
-                {{formSet.email}}
-                {{formSet.password1}}
-                {{formSet.password2}}
+                {{form.username}}
+                {{form.email}}
+                {{form.password1}}
+                {{form.password2}}
                 <br>
                 <button class="btn btn-danger" type="submit" value="Create">Create</button>
                 <button class="btn btn-warning" value="Create"><a style="color:white" href="{% url 'home' %}">Cancel</a> </button>
