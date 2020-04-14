@@ -88,7 +88,7 @@
             </div>
             {% for message in messages %}
                 <p id="alert alert-primary">{{message}}</p>
-            {%endfor%}
+            {% endfor %}
             <div class="mt-4">
                 <div class="d-flex justify-content-center links">
                     Don't have a account? <a href="{% url 'signup' %}" class="ml-2">Sign Up</a>
