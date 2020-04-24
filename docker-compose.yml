@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  accounts:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: djaccount
+    ports:
+      - 8083:8000
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
+    links:
+      - postgres:postgres
+    env_file:
+      - ./env/django.env
+
+  postgres:
+    image: postgres:10.4
+    container_name: djpostgres
+    env_file:
+      - ./env/postgresql.env
+    volumes:
+      - /opt/data:/var/lib/postgresql/data/

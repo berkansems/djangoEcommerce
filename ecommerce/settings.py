@@ -19,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-oghc!sd%_y_016$@wrcmjz$&in^p7%+2uhm3czja-y+w75bvj'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ['berkan.herokuapp.com','127.0.0.1']
+SECRET_KEY = os.environ.get("SECRET_KEY", default='localenvcheck')
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = int(os.environ.get("DEBUG",default=1))
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ") if os.environ.get('ALLOWED_HOSTS') else ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
@@ -92,7 +95,11 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.environ.get("NAME", 'postgres') ,
+        'USER': os.environ.get("USER",'postgres'),
+        'PASSWORD': os.environ.get("PASSWORD", '123'),
+        'HOST': os.environ.get("HOST",'postgres'),
+        'PORT': os.environ.get("PORT",'5432')
     }
 }
 
