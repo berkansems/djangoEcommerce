@@ -3,9 +3,9 @@ FROM python:3.6.8-jessie
 COPY requirements.txt /
 RUN pip install -r requirements.txt
 
-RUN mkdir djecommerce
-COPY . ./djecommerce
-WORKDIR /djecommerce
+RUN mkdir ecommerce
+COPY . ./ecommerce
+WORKDIR /ecommerce
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

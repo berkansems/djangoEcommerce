@@ -6,9 +6,12 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: djaccount
+    container_name: account
+
+
+
     ports:
-      - 8083:8000
+      - 8080:8000
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
     links:
       - postgres:postgres
@@ -17,7 +20,7 @@ services:
 
   postgres:
     image: postgres:10.4
-    container_name: djpostgres
+    container_name: postgres
     env_file:
       - ./env/postgresql.env
     volumes:
