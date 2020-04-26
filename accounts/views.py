@@ -12,7 +12,9 @@ from accounts.filters import OrderFilter
 from accounts.forms import OrderForm, CustomerForm, CreateUserForm
 from accounts.models import Order, Customer, Product
 from django.forms import inlineformset_factory
+import logging
 
+logger=logging.getLogger("logger2")
 
 @login_required(login_url='signin')
 #@allowed_users(allowed_roles=['admin'])
@@ -77,6 +79,8 @@ def createOrder(request, pk):
         formSet = orderFormSet(request.POST, instance=customer)
         if formSet.is_valid():
             formSet.save()
+
+            logger.info("order created by admin")
             return redirect('customer', pk)
     context = {'formSet': formSet}
     return render(request, 'accounts/order_form.html', context)
@@ -99,6 +103,8 @@ def newOrderCustomer(request,pk):
             for order in orders:
                 order.totalCost=order.adet * order.product.price
                 order.save()
+
+            logger.info("orders created by customer")
         return redirect('payment',pk)
 
 
@@ -139,6 +145,7 @@ def updateOrder(request, pk):
         form = OrderForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
+            logger.info("order updated by admin")
             return redirect('customer', order.customer.pk)
     context = {'form': form}
     return render(request, 'accounts/update_order.html', context)
@@ -150,6 +157,8 @@ def deleteOrder(request, pk):
     order = Order.objects.get(id=pk)
     if request.method == 'POST':
         order.delete()
+
+        logger.info("order deleted by admin")
         return redirect('customer', order.customer.pk)
     context = {'order': order}
     return render(request, 'accounts/delete_order.html', context)
@@ -160,6 +169,8 @@ def deleteCustomer(request, pk):
     customer = Customer.objects.get(id=pk)
     if request.method == 'POST':
         customer.delete()
+
+        logger.info("customer deleted by admin")
         return redirect('home')
     context = {'customer': customer}
     return render(request, 'accounts/delete_customer.html', context)
@@ -174,6 +185,8 @@ def updateCustomer(request, pk):
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
             form.save()
+
+            logger.info("customer info changed by admin")
             return redirect('customer', pk)
     context = {'form': form}
     return render(request, 'accounts/update_customer.html', context)
@@ -193,8 +206,9 @@ def createCustomer(request):
             #   user=user,
             #   name=user.username
             #)
-            username = form.cleaned_data.get('username')
-            messages.success(request, 'Accounts was created for ' + username)
+
+            logger.info("customer created by admin")
+
             return redirect('signout')
     context = {'form': form}
     return render(request, 'accounts/create_customer.html',context)
@@ -213,9 +227,11 @@ def signUp(request):
             #    user=user,
             #    name=user.username
             #)
-            username = form.cleaned_data.get('username')
-            messages.success(request, 'Accounts was created for ' + username)
+            logger.info("customer registered successfully")
             return redirect('signin')
+        else:
+            logger.error("registeration failed")
+
     context = {'form': form}
     return render(request, 'accounts/signup.html', context)
 
@@ -228,8 +244,11 @@ def signIn(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+
+            logger.info("customer signin successfully")
             return redirect("home")
         else:
+            logger.error("Username or Password is incorrect")
             messages.info(request, 'Username or Password is incorrect')
     context = {}
     return render(request, 'accounts/signin.html', context)
@@ -237,6 +256,7 @@ def signIn(request):
 
 def signOut(request):
     logout(request)
+    logger.info("user or admin logout")
     return redirect('signin')
 
 
@@ -270,6 +290,7 @@ def accountSettings(request):
         form = CustomerForm(request.POST, request.FILES, instance=customer)
         if form.is_valid():
             form.save()
+            logger.info("settings of account changed")
 
     context = {'form': form}
     return render(request, 'accounts/account_settings.html', context)

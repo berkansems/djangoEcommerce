@@ -156,3 +156,37 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'lizartinsaat@gmail.com'
 EMAIL_HOST_PASSWORD = '123456+test'
 
+
+LOGGING = {
+    "version": 1,
+    "formatters": {
+        "default": {
+            "format": "%(asctime)s : [%(levelname)-8s] %(processName)s:%(process)d:%(thread)d:%(name)s : %(message)s",
+        }
+    },
+    "handlers": {
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "INFO",
+            "formatter": "default",
+            "filename": os.environ.get("LOG_PATH","/opt/myapp.log"),
+            "maxBytes": os.environ.get("LOG_FILE_SIZE", 209715200)  # 200M
+        },
+        "stdout": {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "default",
+        }
+    },
+    "loggers": {
+        "logger1": {
+            "level": "INFO",
+            "handlers": ["stdout"],
+        },
+        "logger2": {
+            "level": "INFO",
+            "handlers": ["stdout", "file"],
+        },
+    },
+}
+

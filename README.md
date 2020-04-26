@@ -16,3 +16,6 @@ username: mehmet
 
 password: 123456+test
 
+----------------
+
+sudo docker exec -it account bash

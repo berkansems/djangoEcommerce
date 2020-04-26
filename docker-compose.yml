@@ -15,6 +15,10 @@ services:
       - postgres:postgres
     env_file:
       - ./env/django.env
+    environment:
+      - LOG_PATH=/var/log/applog/myapp.log
+    volumes:
+      - /opt/log:/var/log/applog
 
   postgres:
     image: postgres:10.4
