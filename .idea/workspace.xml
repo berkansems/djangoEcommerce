@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56a47a1b-6cc9-4033-8bf6-24ca6fd82d8a" name="Default Changelist" comment="" />
+    <list default="true" id="56a47a1b-6cc9-4033-8bf6-24ca6fd82d8a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ecommerce/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/ecommerce/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env/postgresql.env" beforeDir="false" afterPath="$PROJECT_DIR$/env/postgresql.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -30,10 +37,11 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/manage.py" />
+    <property name="run.code.analysis.last.selected.profile" value="aDefault" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.ecommercedjango">
     <configuration name="decorators" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="djangoEcommerce" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -46,6 +54,16 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/accounts/decorators.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -55,6 +73,73 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="ecommercedjango" type="PythonConfigurationType" factoryName="Python">
+      <module name="djangoEcommerce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver 0.0.0.0:8095" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="djangoEcommerce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python3.6" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/manage.py" />
+      <option name="PARAMETERS" value="runserver 0.0.0.0:8090" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.manage" />
+      <item itemvalue="Python.ecommercedjango" />
+      <item itemvalue="Python.decorators" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.decorators" />
@@ -79,42 +164,94 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="214" width="800" height="677" key="#Notifications/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585656964164" />
+    <state x="236" y="230" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588848964032">
+      <screen x="51" y="0" width="1869" height="2104" />
+    </state>
+    <state x="440" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588791786839" />
+    <state x="236" y="230" key="#com.intellij.execution.impl.EditConfigurationsDialog/51.0.1869.2104@51.0.1869.2104" timestamp="1588848964032" />
+    <state x="638" y="332" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588783918256">
+      <screen x="440" y="0" width="1024" height="768" />
+    </state>
+    <state x="638" y="332" width="518" height="294" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588783918256" />
     <state x="586" y="124" width="805" height="856" key="CommitChangelistDialog2" timestamp="1585658093166">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="586" y="124" width="805" height="856" key="CommitChangelistDialog2/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585658093166" />
-    <state x="766" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1587134894514">
-      <screen x="51" y="27" width="1869" height="1053" />
+    <state x="765" y="1051" width="374" height="345" key="FileChooserDialogImpl" timestamp="1588838059595">
+      <screen x="51" y="0" width="1869" height="2104" />
     </state>
+    <state x="831" y="206" width="374" height="345" key="FileChooserDialogImpl/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588793597546" />
+    <state x="734" y="1058" width="424" height="484" key="FileChooserDialogImpl/0.768.1920.1080/51.0.1315.768@0.768.1920.1080" timestamp="1588671659831" />
+    <state x="554" y="206" width="374" height="354" key="FileChooserDialogImpl/0.768.1920.1080/51.0.1315.768@51.0.1315.768" timestamp="1588427622644" />
+    <state x="554" y="226" key="FileChooserDialogImpl/0.768.1920.1080/51.27.1315.741@51.27.1315.741" timestamp="1588271187497" />
+    <state x="766" y="795" key="FileChooserDialogImpl/51.0.1869.1848@51.0.1869.1848" timestamp="1588314343172" />
+    <state x="765" y="1051" key="FileChooserDialogImpl/51.0.1869.2104@51.0.1869.2104" timestamp="1588838059595" />
     <state x="2443" y="206" width="374" height="354" key="FileChooserDialogImpl/51.27.1869.1053/1920.0.1366.768@1920.0.1366.768" timestamp="1586878139462" />
     <state x="766" y="310" width="424" height="484" key="FileChooserDialogImpl/51.27.1869.1053/1920.0.1366.768@51.27.1869.1053" timestamp="1587134894514" />
+    <state x="766" y="310" width="424" height="484" key="FileChooserDialogImpl/51.27.1869.1053@51.27.1869.1053" timestamp="1588075945764" />
     <state x="915" y="309" width="424" height="484" key="FileChooserDialogImpl/51.27.3235.1053@51.27.3235.1053" timestamp="1586850587262" />
     <state x="776" y="310" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1280.1024@67.27.1853.1053" timestamp="1584949737965" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1586199136918" />
     <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1584825823788" />
-    <state width="1830" height="278" key="GridCell.Tab.0.bottom" timestamp="1585663142459">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1257" height="223" key="GridCell.Tab.0.bottom" timestamp="1588849073676">
+      <screen x="51" y="0" width="1869" height="2104" />
     </state>
+    <state width="1257" height="220" key="GridCell.Tab.0.bottom/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588796047853" />
+    <state width="1257" height="223" key="GridCell.Tab.0.bottom/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073676" />
     <state width="1830" height="278" key="GridCell.Tab.0.bottom/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
-    <state width="1830" height="278" key="GridCell.Tab.0.center" timestamp="1585663142459">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1257" height="223" key="GridCell.Tab.0.center" timestamp="1588849073672">
+      <screen x="51" y="0" width="1869" height="2104" />
     </state>
+    <state width="1257" height="220" key="GridCell.Tab.0.center/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588796047853" />
+    <state width="1257" height="223" key="GridCell.Tab.0.center/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073672" />
     <state width="1830" height="278" key="GridCell.Tab.0.center/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
-    <state width="1830" height="278" key="GridCell.Tab.0.left" timestamp="1585663142459">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1257" height="223" key="GridCell.Tab.0.left" timestamp="1588849073670">
+      <screen x="51" y="0" width="1869" height="2104" />
     </state>
+    <state width="1257" height="220" key="GridCell.Tab.0.left/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588796047852" />
+    <state width="1257" height="223" key="GridCell.Tab.0.left/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073670" />
     <state width="1830" height="278" key="GridCell.Tab.0.left/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
-    <state width="1830" height="278" key="GridCell.Tab.0.right" timestamp="1585663142459">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1257" height="223" key="GridCell.Tab.0.right" timestamp="1588849073674">
+      <screen x="51" y="0" width="1869" height="2104" />
     </state>
+    <state width="1257" height="220" key="GridCell.Tab.0.right/0.768.1920.1080/440.0.1024.768@440.0.1024.768" timestamp="1588796047853" />
+    <state width="1257" height="223" key="GridCell.Tab.0.right/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073674" />
     <state width="1830" height="278" key="GridCell.Tab.0.right/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1585663142459" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1586194657194">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state width="1257" height="223" key="GridCell.Tab.1.bottom" timestamp="1588849073684">
+      <screen x="51" y="0" width="1869" height="2104" />
     </state>
+    <state width="1257" height="223" key="GridCell.Tab.1.bottom/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073684" />
+    <state width="1257" height="223" key="GridCell.Tab.1.center" timestamp="1588849073681">
+      <screen x="51" y="0" width="1869" height="2104" />
+    </state>
+    <state width="1257" height="223" key="GridCell.Tab.1.center/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073681" />
+    <state width="1257" height="223" key="GridCell.Tab.1.left" timestamp="1588849073679">
+      <screen x="51" y="0" width="1869" height="2104" />
+    </state>
+    <state width="1257" height="223" key="GridCell.Tab.1.left/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073679" />
+    <state width="1257" height="223" key="GridCell.Tab.1.right" timestamp="1588849073683">
+      <screen x="51" y="0" width="1869" height="2104" />
+    </state>
+    <state width="1257" height="223" key="GridCell.Tab.1.right/51.0.1869.2104@51.0.1869.2104" timestamp="1588849073683" />
+    <state x="344" y="38" key="SettingsEditor" timestamp="1588268867054">
+      <screen x="51" y="27" width="1315" height="741" />
+    </state>
+    <state x="344" y="38" key="SettingsEditor/0.768.1920.1080/51.27.1315.741@51.27.1315.741" timestamp="1588268867054" />
     <state x="482" y="187" key="SettingsEditor/67.27.1853.1053/1920.0.1366.768@67.27.1853.1053" timestamp="1586194657194" />
     <state x="714" y="286" width="540" height="524" key="StructurePopup" timestamp="1586794277068">
       <screen x="51" y="27" width="1869" height="1053" />
     </state>
     <state x="714" y="286" width="540" height="524" key="StructurePopup/51.27.1869.1053/1920.0.1366.768@51.27.1869.1053" timestamp="1586794277068" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/accounts/views.py</url>
+          <line>249</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -6,10 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
 
-    container_name: account
+    container_name: accountecommerce
 
     ports:
-      - 8080:8000
+      - 8091:8000
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
     links:
       - postgres:postgres
@@ -22,8 +22,20 @@ services:
 
   postgres:
     image: postgres:10.4
-    container_name: postgres
+    container_name: postgreseccommerce
     env_file:
       - ./env/postgresql.env
     volumes:
       - /opt/data:/var/lib/postgresql/data/
+    links:
+      - rabbitmq
+
+  rabbitmq:
+    image: "rabbitmq:management"
+    hostname: rabbithostmq
+    container_name: rabbithostmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - /opt/rabbithostmq:/etc/rabbithostmq/rabbithostmq.config

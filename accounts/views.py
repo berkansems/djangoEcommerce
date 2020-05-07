@@ -14,10 +14,15 @@ from accounts.models import Order, Customer, Product
 from django.forms import inlineformset_factory
 import logging
 
+
+from accounts.rabbitConnection import RabbitConnection
+
+connection=RabbitConnection()
+
 logger=logging.getLogger("logger2")
 
 @login_required(login_url='signin')
-#@allowed_users(allowed_roles=['admin'])
+@allowed_users(allowed_roles=['admin'])
 @user_analyser
 def home(request):
     orders = Order.objects.all()
@@ -218,19 +223,20 @@ def signUp(request):
     form = CreateUserForm()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        if form.is_valid():
-            #user = form.save()
-            form.save()
-            #group = Group.objects.get(name='customer')
-            #user.groups.add(group)
-            #Customer.objects.create(
-            #    user=user,
-            #    name=user.username
-            #)
-            logger.info("customer registered successfully")
-            return redirect('signin')
-        else:
-            logger.error("registeration failed")
+        try:
+            if form.is_valid():
+                #user = form.save()
+                form.save()
+                #group = Group.objects.get(name='customer')
+                #user.groups.add(group)
+                #Customer.objects.create(
+                #    user=user,
+                #    name=user.username
+                #)
+                logger.info("customer registered successfully")
+                return redirect('signin')
+        except:
+            logger.exception("registeration failed")
 
     context = {'form': form}
     return render(request, 'accounts/signup.html', context)
@@ -242,12 +248,15 @@ def signIn(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
+
+
         if user is not None:
             login(request, user)
-
+            connection.write_to_queue(message="user connected",route=1)
             logger.info("customer signin successfully")
-            return redirect("home")
+            return redirect('home')
         else:
+            connection.write_to_queue(message="user not connected",route=2)
             logger.error("Username or Password is incorrect")
             messages.info(request, 'Username or Password is incorrect')
     context = {}
@@ -257,6 +266,7 @@ def signIn(request):
 def signOut(request):
     logout(request)
     logger.info("user or admin logout")
+    connection.write_to_queue(message="user signed out",route=3)
     return redirect('signin')
 
 
